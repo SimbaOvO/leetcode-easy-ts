@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/palindrome-number/submissions/
+// https://leetcode.com/problems/palindrome-number/
 
 function isPalindrome(x: number): boolean {
 	if (x < 0) return false
