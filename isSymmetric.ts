@@ -1,6 +1,7 @@
 // https://leetcode.com/problems/symmetric-tree/
 import { ITreeNode } from './common/TreeNode';
 
+// DFS
 function check(p: ITreeNode | null, q: ITreeNode | null): boolean {
 	if (p === null && q === null) {
 		return true
@@ -13,4 +14,30 @@ function check(p: ITreeNode | null, q: ITreeNode | null): boolean {
 
 function isSymmetric(root: ITreeNode | null): boolean {
 	return check(root.left, root.right)
+};
+
+// BFS
+function isSymmetric(root: ITreeNode | null): boolean {
+	const nodes = [root.left, root.right]
+
+	while(nodes.length > 0) {
+		const leftNode = nodes.shift()
+		const rightNode = nodes.shift()
+
+		if (leftNode === null && rightNode === null) {
+			continue
+		} else if (leftNode === null || rightNode === null) {
+			return false
+		} else if (leftNode.val !== rightNode.val){
+			return false
+		} else {
+			nodes.push(leftNode.left)
+			nodes.push(rightNode.right)
+
+			nodes.push(leftNode.right)
+			nodes.push(rightNode.left)
+		}
+	}
+
+	return true
 };
