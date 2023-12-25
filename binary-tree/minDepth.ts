@@ -1,5 +1,5 @@
 // https://leetcode.com/problems/minimum-depth-of-binary-tree/
-import { ITreeNode } from './common/TreeNode';
+import { ITreeNode } from '../common/TreeNode';
 
 // DFS
 function minDepth(root: ITreeNode | null): number {

@@ -1,5 +1,5 @@
 // https://leetcode.com/problems/same-tree/
-import { ITreeNode } from './common/TreeNode';
+import { ITreeNode } from '../common/TreeNode';
 
 // DFS
 function isSameTree(p: ITreeNode | null, q: ITreeNode | null): boolean {

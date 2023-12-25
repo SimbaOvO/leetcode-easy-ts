@@ -1,5 +1,5 @@
 // https://leetcode.com/problems/symmetric-tree/
-import { ITreeNode } from './common/TreeNode';
+import { ITreeNode } from '../common/TreeNode';
 
 // DFS
 function isSymmetric(root: ITreeNode | null): boolean {

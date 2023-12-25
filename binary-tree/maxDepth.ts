@@ -1,5 +1,5 @@
 // https://leetcode.com/problems/maximum-depth-of-binary-tree/
-import { ITreeNode } from './common/TreeNode';
+import { ITreeNode } from '../common/TreeNode';
 
 // DFS
 function maxDepth(root: ITreeNode | null): number {

@@ -1,5 +1,5 @@
 // https://leetcode.com/problems/balanced-binary-tree/
-import { ITreeNode } from './common/TreeNode';
+import { ITreeNode } from '../common/TreeNode';
 
 function isBalanced(root: ITreeNode | null): boolean {
 	if (root === null) {

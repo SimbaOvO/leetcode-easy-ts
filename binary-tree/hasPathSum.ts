@@ -1,5 +1,5 @@
 // https://leetcode.com/problems/path-sum/
-import { ITreeNode } from './common/TreeNode';
+import { ITreeNode } from '../common/TreeNode';
 
 // DFS
 function hasPathSum(root: ITreeNode | null, targetSum: number): boolean {
