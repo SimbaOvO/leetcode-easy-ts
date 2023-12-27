@@ -1,6 +1,6 @@
 import { ITreeNode } from '../common/TreeNode';
 
-// DFS
+// recursion
 function preorderTraversal(root: ITreeNode | null): number[] {
 	if (root === null) {
 		return []
@@ -12,4 +12,28 @@ function preorderTraversal(root: ITreeNode | null): number[] {
 	const rightNodes = preorderTraversal(root.right)
 	
 	return [...nodes, ...leftNodes, ...rightNodes]
+};
+
+// iterative
+function preorderTraversal(root: TreeNode | null): number[] {
+	if (root === null) {
+		return []
+	}
+	
+	let node = root
+	const stack = []
+	const arr = []
+	
+	while (node || stack.length > 0) {
+		while(node) {
+			arr.push(node.val)
+			stack.push(node)
+			node = node.left
+		}
+		
+		node = stack.pop()
+		node = node.right
+	}
+	
+	return arr
 };
