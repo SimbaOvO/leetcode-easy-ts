@@ -14,7 +14,7 @@ function postorderTraversal(root: ITreeNode | null): number[] {
 };
 
 // iterative
-function postorderTraversal(root: TreeNode | null): number[] {
+function postorderTraversal(root: ITreeNode | null): number[] {
 	if (root === null) {
 		return []
 	}
