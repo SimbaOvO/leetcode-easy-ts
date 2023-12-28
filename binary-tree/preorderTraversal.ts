@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/binary-tree-preorder-traversal/
 import { ITreeNode } from '../common/TreeNode';
 
 // recursion
@@ -15,7 +16,7 @@ function preorderTraversal(root: ITreeNode | null): number[] {
 };
 
 // iterative
-function preorderTraversal(root: TreeNode | null): number[] {
+function preorderTraversal(root: ITreeNode | null): number[] {
 	if (root === null) {
 		return []
 	}
