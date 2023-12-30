@@ -1,5 +1,5 @@
 // https://leetcode.com/problems/remove-duplicates-from-sorted-list/
-import { IListNode } from './common/ListNode';
+import { IListNode } from '../common/ListNode';
 
 function deleteDuplicates(head: IListNode | null): IListNode | null {
 	let current = head
