@@ -1,4 +1,4 @@
-import { IListNode } from './common/ListNode';
+import { IListNode } from '../common/ListNode';
 
 function hasCycle(head: IListNode | null): boolean {
 	const set = new Set()
@@ -6,10 +6,9 @@ function hasCycle(head: IListNode | null): boolean {
 	while (head) {
 		if (set.has(head)) {
 			return true
-		} else {
-			set.add(head)
 		}
 		
+		set.add(head)
 		head = head.next
 	}
 	
