@@ -5,9 +5,9 @@ function isPowerOfTwo(n: number): boolean {
 		return false
 	}
 	
-	while (n > 0) {
+	while (n > 1) {
 		const base = n % 2
-		if (n !== 1 && base === 1) {
+		if (base === 1) {
 			return false
 		}
 		n = Math.floor(n / 2)
