@@ -1,40 +1,26 @@
-// https://leetcode.cn/problems/implement-stack-using-queues/
+// https://leetcode.com/problems/implement-stack-using-queues/
 
 // two queues
 class MyStack {
-	queue1: number[] = []
-	queue2: number[] = []
-	
-	constructor() {
-		this.queue1 = []
-		this.queue2 = []
-	}
+	private queue1: number[] = []
+	private queue2: number[] = []
 	
 	push(x: number): void {
-		this.queue1.push(x)
+		this.queue2.push(x)
+		
+		while (this.queue1.length) {
+			this.queue2.push(this.queue1.shift())
+		}
+		
+		[this.queue1, this.queue2] = [this.queue2, this.queue1]
 	}
 	
 	pop(): number {
-		const len = this.queue1.length - 1
-		let index = 0
-		
-		while (index < len) {
-			this.queue2.push(this.queue1[index])
-			index++
-		}
-		
-		const num = this.queue1[len]
-		this.queue1 = this.queue2
-		this.queue2 = []
-		
-		return num
-		
+		return this.queue1.shift()
 	}
 	
 	top(): number {
-		const len = this.queue1.length - 1
-		
-		return this.queue1[len]
+		return this.queue1[0]
 	}
 	
 	empty(): boolean {
@@ -44,35 +30,28 @@ class MyStack {
 
 // one queue
 class MyStack {
-	queue: number[] = []
-	
-	constructor() {
-		this.queue = []
-	}
+	private queue1: number[] = []
 	
 	push(x: number): void {
-		this.queue.push(x)
+		this.queue1.push(x)
+		
+		let index = 1
+		
+		while (index < this.queue1.length) {
+			this.queue1.push(this.queue1.shift())
+			index++
+		}
 	}
 	
 	pop(): number {
-		const len = this.queue.length - 1
-		let index = 0
-		
-		while (index < len) {
-			this.queue.push(this.queue.shift()!)
-			index++
-		}
-		
-		return this.queue.shift()!
+		return this.queue1.shift()
 	}
 	
 	top(): number {
-		const len = this.queue.length - 1
-		
-		return this.queue[len]
+		return this.queue1[0]
 	}
 	
 	empty(): boolean {
-		return this.queue.length === 0
+		return this.queue1.length === 0
 	}
 }
