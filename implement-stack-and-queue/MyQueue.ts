@@ -1,4 +1,4 @@
-// https://leetcode.cn/problems/implement-queue-using-stacks/
+// https://leetcode.com/problems/implement-queue-using-stacks/
 
 class MyQueue {
 	stack1: number[]
@@ -14,22 +14,29 @@ class MyQueue {
 	}
 	
 	pop(): number {
-		for (let i = 1; i < this.stack1.length; i++) {
-			this.stack2.push(this.stack1[i])
+		if (this.stack2.length === 0) {
+			while (this.stack1.length) {
+				this.stack2.push(this.stack1.pop())
+			}
 		}
 		
-		const item = this.stack1[0]
-		this.stack1 = [...this.stack2]
-		this.stack2 = []
-		return item
+		return this.stack2.pop()
 	}
 	
 	peek(): number {
-		return this.stack1[0]
+		if (this.stack2.length === 0) {
+			while (this.stack1.length) {
+				this.stack2.push(this.stack1.pop())
+			}
+		}
+		
+		const temp = this.stack2.pop()
+		this.stack2.push(temp)
+		return temp
 	}
 	
 	empty(): boolean {
-		return this.stack1.length === 0
+		return this.stack1.length === 0 && this.stack2.length === 0
 	}
 }
 
