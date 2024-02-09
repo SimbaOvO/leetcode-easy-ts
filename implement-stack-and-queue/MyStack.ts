@@ -35,9 +35,10 @@ class MyStack {
 	push(x: number): void {
 		this.queue1.push(x)
 		
-		let index = 1
+		const beforeLast = this.queue1.length - 1
+		let index = 0
 		
-		while (index < this.queue1.length) {
+		while (index < beforeLast) {
 			this.queue1.push(this.queue1.shift())
 			index++
 		}
