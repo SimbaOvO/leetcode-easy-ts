@@ -1,18 +1,21 @@
 // https://leetcode.com/problems/plus-one/
 
 function plusOne(digits: number[]): number[] {
-	let lastIndex = digits.length - 1
+	let flag = true
+	let index = digits.length - 1
 	
-	while(lastIndex >= 0) {
-		const base = (digits[lastIndex] + 1) % 10
-		digits[lastIndex] = base
+	while (index >= 0 && flag) {
+		const count = digits[index] + (+flag)
+		const offset = count % 10
 		
-		if (base !== 0) {
-			return digits
-		}
-		
-		lastIndex--
+		digits[index] = offset
+		flag = offset === 0
+		index--
 	}
 	
-	return [1, ...digits]
+	if (flag) {
+		digits.unshift(1)
+	}
+	
+	return digits
 };
