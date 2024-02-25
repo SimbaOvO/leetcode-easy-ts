@@ -11,8 +11,8 @@ function findWords(words: string[]): string[] {
 	
 	let arr = []
 	
-	for (let rule of rules) {
-		for (let word of words) {
+	for (let word of words) {
+		for (let rule of rules) {
 			let str = ''
 			
 			for (let char of word) {
